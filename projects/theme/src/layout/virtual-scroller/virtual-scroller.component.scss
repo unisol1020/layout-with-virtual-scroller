@@ -1,0 +1,7 @@
+::ng-deep {
+  fu-layout-virtual-scroller.fu-layout-virtual-scroller-skip-scrolling {
+    cdk-virtual-scroll-viewport {
+      overflow: hidden;
+    }
+  }
+}

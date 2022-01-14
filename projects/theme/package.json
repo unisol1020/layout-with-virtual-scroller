@@ -1,0 +1,14 @@
+{
+  "name": "@project/theme",
+  "version": "0.0.1",
+  "keywords": [
+    "angular"
+  ],
+  "license": "MIT",
+  "module": "theme.js",
+  "typings": "theme.d.ts",
+  "peerDependencies": {
+    "@angular/core": "^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0",
+    "@angular/common": "^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0"
+  }
+}

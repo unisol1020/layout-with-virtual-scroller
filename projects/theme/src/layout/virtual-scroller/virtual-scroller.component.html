@@ -1,0 +1,10 @@
+<cdk-virtual-scroll-viewport #viewport [itemSize]="itemSize"
+                             [style]="{minHeight: 'calc(100vh - 60px)', width: '600px'}">
+  <div *cdkVirtualFor="let item of data"
+       [ngStyle]="{'height': itemSize + 'px', background: 'black', color: 'white', borderBottom: '1px solid green'}">
+    <div>
+      {{ item }}
+    </div>
+  </div>
+</cdk-virtual-scroll-viewport>
+

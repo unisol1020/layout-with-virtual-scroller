@@ -1,0 +1,50 @@
+<div class="fu-layout">
+  <div class="fu-container">
+    <ng-content select="fu-layout-header"></ng-content>
+
+    <div class="fu-layout-content-wrapper">
+      <div class="fu-layout-content-container">
+        <div class="fu-layout-content-main-container">
+          <div class="fu-layout-content-center">
+            <div [class]="{
+              'fu-content-container': true,
+              'without-left-sidebar': !sidebar.left && sidebar.right,
+              'without-right-sidebar': !sidebar.right && sidebar.left,
+              'without-sidebars': !sidebar.right && !sidebar.left
+            }">
+              <div
+                *ngIf="sidebar.left"
+                class="fu-sidebar left fixed">
+                <div class="fu-sidebar-container">
+                  <div class="fu-sidebar-wrapper">
+                    <ng-container *ngTemplateOutlet="sidebar.left"></ng-container>
+                  </div>
+                </div>
+              </div>
+
+              <div class="fu-center-content">
+                <div class="fu-layout-center-container">
+                  <div class="fu-center-wrapper">
+                    <ng-content></ng-content>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                *ngIf="sidebar.right"
+                class="fu-sidebar right fixed">
+                <div class="fu-sidebar-container">
+                  <div class="fu-sidebar-wrapper">
+                    <ng-container *ngTemplateOutlet="sidebar.right"></ng-container>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ng-content select="fu-layout-footer"></ng-content>
+  </div>
+</div>

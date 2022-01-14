@@ -1,0 +1,61 @@
+@import "../../../variables";
+
+:host {
+  &.fixed {
+    .fu-column {
+      max-height: calc(100vh - $header-height);
+      position: -webkit-sticky;
+      position: sticky;
+    }
+  }
+
+  @media(max-width: 1024px) {
+    order: 3;
+    margin-bottom: $layout-tablet-mb;
+  }
+
+  @media(min-width: 1024px) {
+    order: 2;
+    margin-bottom: unset;
+  }
+
+  .fu-column {
+    box-sizing: border-box;
+    overflow-anchor: none;
+    flex-shrink: 9999;
+    top: $header-height;
+    overflow-x: hidden;
+    z-index: 0;
+
+    @media(max-width: 1024px) {
+      flex-basis: unset;
+      max-width: unset;
+    }
+
+    @media(min-width: 1024px) {
+      flex-basis: 600px;
+      max-width: 600px;
+    }
+  }
+
+  .fu-column-container {
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    z-index: 0;
+  }
+
+  .fu-column-wrapper {
+    perspective-origin: right top;
+    overflow-x: hidden;
+    position: relative;
+    perspective: 1px;
+    transform-style: preserve-3d;
+    display: flex;
+    flex-shrink: 1;
+    overflow-y: auto;
+    z-index: 0;
+    flex-basis: 100%;
+    flex-grow: 1;
+  }
+}

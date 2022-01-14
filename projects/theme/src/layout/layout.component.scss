@@ -1,0 +1,236 @@
+@import "../../variables";
+
+::ng-deep {
+  body {
+    overflow-y: visible;
+    background: #f9f4ec;
+    overscroll-behavior-y: none;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+    padding: 0;
+  }
+
+  .fu-container > fu-layout-footer {
+    padding-bottom: 60px;
+  }
+}
+
+:host {
+  .fu-layout {
+    display: block;
+  }
+
+  .fu-container {
+    display: block;
+    position: relative;
+    z-index: 0;
+  }
+
+  .fu-layout-content-wrapper {
+    position: relative;
+  }
+
+  .fu-layout-content-container {
+    position: relative;
+    display: flex;
+    z-index: 0;
+    flex-direction: column;
+    top: $header-height;
+    min-height: calc(100vh - $header-height);
+  }
+
+  .fu-layout-content-main-container {
+    contain: style layout paint;
+    position: relative;
+    display: flex;
+    z-index: 0;
+    margin-bottom: calc(-100vh + $header-height);
+    flex-direction: column;
+  }
+
+  .fu-layout-content-center {
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    flex-shrink: 0;
+    flex-wrap: nowrap;
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    z-index: 0;
+    min-height: inherit;
+    flex-direction: row;
+
+    @media(min-width: 1200px) {
+      width: 1200px;
+    }
+
+    @media(max-width: 1024px) {
+      width: auto;
+    }
+  }
+
+
+  .fu-content-container {
+    width: 100%;
+    display: flex;
+    box-sizing: border-box;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    position: relative;
+    flex-shrink: 1;
+    z-index: 0;
+    min-height: inherit;
+    flex-grow: 1;
+
+    @media(min-width: 1024px) {
+      gap: 1rem;
+      flex-direction: row;
+    }
+
+    @media(min-width: 1200px) {
+      gap: 2rem;
+    }
+
+    @media(max-width: 1024px) {
+      flex-direction: column;
+      padding: 0 1rem;
+    }
+  }
+
+  .fu-center-content {
+    box-sizing: border-box;
+    overflow-anchor: none;
+    flex-shrink: 9999;
+    top: $header-height;
+    overflow-x: hidden;
+    z-index: 0;
+
+    @media(max-width: 1024px) {
+      order: 2;
+    }
+
+    @media(min-width: 1024px) {
+      order: 1;
+    }
+  }
+
+  .fu-layout-center-container {
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    z-index: 0;
+  }
+
+  .fu-center-wrapper {
+    perspective-origin: right top;
+    overflow-x: hidden;
+    position: relative;
+    perspective: 1px;
+    transform-style: preserve-3d;
+    display: flex;
+    flex-shrink: 1;
+    overflow-y: auto;
+    z-index: 0;
+    flex-basis: 100%;
+    flex-grow: 1;
+
+    @media(min-width: 1024px) {
+      max-width: 600px;
+    }
+  }
+
+  .fu-sidebar {
+    max-height: calc(100vh - $header-height);
+    box-sizing: border-box;
+    overflow-anchor: none;
+    flex-shrink: 9999;
+    top: $header-height;
+    overflow-x: hidden;
+    flex-basis: 270px;
+    z-index: 0;
+
+    @media(max-width: 1024px) {
+      width: auto;
+    }
+
+    @media(min-width: 1024px) {
+      width: 250px;
+    }
+
+    @media(min-width: 1200px) {
+      width: 270px;
+    }
+
+    @media(min-width: 1024px) {
+      margin-bottom: unset;
+    }
+
+    @media(max-width: 1024px) {
+      margin-bottom: $layout-tablet-mb;
+    }
+
+    &.left {
+      order: 0;
+    }
+
+    &.right {
+      @media(min-width: 1024px) {
+        order: 2;
+      }
+
+      @media(max-width: 1024px) {
+        order: 1;
+      }
+    }
+
+    &.fixed {
+      @media(max-width: 1024px) {
+        top: unset;
+        position: unset;
+      }
+
+      @media(min-width: 1024px) {
+        top: $header-height;
+        position: -webkit-sticky;
+        position: sticky;
+      }
+    }
+  }
+
+  .fu-sidebar-container {
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    z-index: 0;
+  }
+
+  .fu-sidebar-wrapper {
+    perspective-origin: right top;
+    overflow-x: hidden;
+    position: relative;
+    perspective: 1px;
+    transform-style: preserve-3d;
+    display: flex;
+    flex-shrink: 1;
+    overflow-y: auto;
+    z-index: 0;
+    flex-basis: 100%;
+    flex-grow: 1;
+  }
+
+
+  ::ng-deep {
+    .without-left-sidebar {
+      .fu-center-content {
+        margin-left: auto;
+      }
+    }
+
+    .without-right-sidebar {
+      .fu-center-content {
+        margin-right: auto;
+      }
+    }
+  }
+}
